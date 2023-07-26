@@ -115,7 +115,7 @@ function enviarCorreo(e) {
 
         $enviar.setAttribute(
             "href",
-            `mailto:brct93@gmail.com?subject=Nombre:${form.get("nombre")},E-mail: ${form.get("email"
+            `pablorevelo209@gmail.com?subject=Nombre:${form.get("nombre")},E-mail: ${form.get("email"
             )},Asunto: ${form.get("asunto")},&body=${form.get("mensaje")}`
         );
         $enviar.click();
