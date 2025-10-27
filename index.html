@@ -49,7 +49,14 @@
       <!-- Sección del Menú  -->
       <section class="menu">
         <header class="menu__header">
-          
+          <!-- Logo para que no quede vacío -->
+          <a href="#top" class="menu__brand" aria-label="Inicio">
+            <img
+              src="https://dummyimage.com/120x40/0f172a/ffffff.png&text=Pablo+Revelo"
+              alt="Logo Pablo Revelo"
+              style="height:40px; width:auto;"
+            />
+          </a>
         </header>
         <nav class="menu-nav">
           <ul class="menu__list">
@@ -69,9 +76,13 @@
       </section>
 
       <!-- Sección del Header/Title/Hero -->
-      <section class="title">
+      <section class="title" id="top">
         <div class="title__div">
-          <img class="title__profile" src="https://cdn-icons-png.flaticon.com/512/3271/3271001.png" />
+          <img
+            class="title__profile"
+            src="https://cdn-icons-png.flaticon.com/512/3271/3271001.png"
+            alt="Avatar de Pablo Revelo"
+          />
           <div class="title__container">
             <h2 class="title__bio">
               Hola, mi nombre es Pablo Revelo y construyo paginas web
@@ -83,28 +94,23 @@
               <!-- Pon los enlaces de tus redes sociales favoritas -->
               <li class="title__network__item">
                 <a target="_blank" href="https://github.com/PABLORVLO"
-                  >Github <img src="assets\arrow.png" />
+                  >Github <img src="assets/arrow.png" alt="" />
                 </a>
               </li>
               <li class="title__network__item">
                 <a
                   target="_blank"
                   href="https://www.linkedin.com/in/pablo-alexander-revelo-quenan-4926351b3/"
-                  >Linkedin <img src="assets\arrow.png"
+                  >Linkedin <img src="assets/arrow.png" alt=""
                 /></a>
               </li>
               <li class="title__network__item">
-                <a
-                  target="_blank"
-                  href="https://www.instagram.com/p_arq2/"
-                  >Instagram <img src="assets\arrow.png"
+                <a target="_blank" href="https://www.instagram.com/p_arq2/"
+                  >Instagram <img src="assets/arrow.png" alt=""
                 /></a>
               </li>
               <li class="title__network__item">
-                <a
-                  target="_blank"
-                  href=""
-                  >Currículum <img src="assets\arrow.png"
+                <a target="_blank" href="">Currículum <img src="assets/arrow.png" alt=""
                 /></a>
               </li>
             </ul>
@@ -118,11 +124,9 @@
           <h3 class="about__title">Sobre mi</h3>
           <p class="about__paragraph">
             Soy Diseñador UX de las certificaciones de Google y profesional de soporte TI apasionado por brindar soluciones técnicas y asistencia a los usuarios. Además, soy un estudiante entusiasta de desarrollo web frontend. Mi experiencia en soporte TI me brinda una base sólida en resolución de problemas y atención al cliente, mientras que mi formación en desarrollo frontend me permite crear interfaces interactivas y atractivas. Mi objetivo es combinar mis habilidades técnicas y mi creatividad para ofrecer soluciones tecnológicas innovadoras y satisfacer las necesidades de los usuarios en el mundo digital en constante evolución.
-            
           </p>
-          
-          <!-- Si quieres, pon tú firma acá! -->
-          <img rc="assets\signature.png" />
+          <!-- Firma (corregido a src) -->
+          <img src="assets/signature.png" alt="Firma" />
         </div>
       </section>
 
@@ -132,7 +136,7 @@
         <div class="skills__line">
           <div class="skills__box">
             <ul>
-              <li class="skills__img"><img src="assets\htlm.png" /></li>
+              <li class="skills__img"><img src="assets/htlm.png" alt="HTML5" /></li>
               <li class="skills__name">HTML 5</li>
             </ul>
           </div>
@@ -140,7 +144,7 @@
           <div class="skills__box">
             <ul>
               <li class="skills__img">
-                <img src="assets\js_icon.png" alt="" />
+                <img src="assets/js_icon.png" alt="JavaScript" />
               </li>
               <li class="skills__name">Javascript</li>
             </ul>
@@ -149,7 +153,7 @@
           <div class="skills__box">
             <ul>
               <li class="skills__img">
-                <img src="assets\php_icon.png" alt="" />
+                <img src="assets/php_icon.png" alt="PHP" />
               </li>
               <li class="skills__name">PHP</li>
             </ul>
@@ -158,7 +162,7 @@
           <div class="skills__box">
             <ul>
               <li class="skills__img">
-                <img src="assets\nodejs_icon.png" alt="" />
+                <img src="assets/nodejs_icon.png" alt="Node.js" />
               </li>
               <li class="skills__name">Node JS</li>
             </ul>
@@ -167,7 +171,7 @@
           <div class="skills__box">
             <ul>
               <li class="skills__img">
-                <img src="assets\react_icon.png" alt="" />
+                <img src="assets/react_icon.png" alt="React" />
               </li>
               <li class="skills__name">React</li>
             </ul>
@@ -176,7 +180,7 @@
           <div class="skills__box">
             <ul>
               <li class="skills__img">
-                <img src="assets\css_icon.png" alt="" />
+                <img src="assets/css_icon.png" alt="CSS" />
               </li>
               <li class="skills__name">CSS</li>
             </ul>
@@ -190,7 +194,7 @@
         <div class="hobbies__line">
           <div class="hobbies__box">
             <ul>
-              <li class="hobbies__img"><img src="assets\skate_icon.png" /></li>
+              <li class="hobbies__img"><img src="assets/skate_icon.png" alt="Patinaje" /></li>
               <li class="hobbies__name">Patinaje</li>
             </ul>
           </div>
@@ -198,7 +202,7 @@
           <div class="hobbies__box">
             <ul>
               <li class="hobbies__img">
-                <img src="assets\guitar_icon.png" alt="" />
+                <img src="assets/guitar_icon.png" alt="Bajo" />
               </li>
               <li class="hobbies__name">Tocar bajo</li>
             </ul>
@@ -207,7 +211,7 @@
           <div class="hobbies__box">
             <ul>
               <li class="hobbies__img">
-                <img src="assets\headphones_icon.png" alt="" />
+                <img src="assets/headphones_icon.png" alt="Música" />
               </li>
               <li class="hobbies__name">Oir música</li>
             </ul>
@@ -216,7 +220,7 @@
           <div class="hobbies__box">
             <ul>
               <li class="hobbies__img">
-                <img src="assets\tv_icon.png" alt="" />
+                <img src="assets/tv_icon.png" alt="Ver series" />
               </li>
               <li class="hobbies__name">Ver séries</li>
             </ul>
@@ -225,7 +229,7 @@
           <div class="hobbies__box">
             <ul>
               <li class="hobbies__img">
-                <img src="assets\forkspoon_icon.png" alt="" />
+                <img src="assets/forkspoon_icon.png" alt="Cocinar" />
               </li>
               <li class="hobbies__name">Cocinar</li>
             </ul>
@@ -234,7 +238,7 @@
           <div class="hobbies__box">
             <ul>
               <li class="hobbies__img">
-                <img src="assets\camera_icon.png" alt="" />
+                <img src="assets/camera_icon.png" alt="Fotografía" />
               </li>
               <li class="hobbies__name">Tomar fotos</li>
             </ul>
@@ -250,7 +254,7 @@
             <ul class="academic__courses__list">
               <!-- Pon el logotipo de la institución de formación -->
               <li class="academic__courses__item__img">
-                <img src="assets/google.png" />
+                <img src="assets/google.png" alt="Google" />
               </li>
               <li class="academic__courses__item__title">
                 <h4>Soporte TI</h4>
@@ -264,7 +268,7 @@
             <ul class="academic__courses__list">
               <!--Pon el logotipo de la institución de formación -->
               <li class="academic__courses__item__img">
-                <img src="assets\alura_logo.png" />
+                <img src="assets/alura_logo.png" alt="Alura Latam" />
               </li>
               <li class="academic__courses__item__title">
                 <h4>2023 - Frontend</h4>
@@ -278,7 +282,7 @@
             <ul class="academic__courses__list">
               <!-- Pon el logotipo de la institución de formación -->
               <li class="academic__courses__item__img">
-                <img src="assets/google.png" />
+                <img src="assets/google.png" alt="Google" />
               </li>
               <li class="academic__courses__item__title">
                 <h4>UX designer</h4>
@@ -294,9 +298,11 @@
       <!-- Sección de Experiencia Profesional/Proyectos-->
       <section class="experience" id="xp">
         <h2 class="experience__section__title">Experiencia Profesional</h2>
+
+        <!-- Proyecto: Encriptador de texto -->
         <div class="experiencie__box">
           <!-- Pon el logotipo/captura de pantalla de tu proyecto -->
-          <img class="experience__img" src="assets\decod_print.png" />
+          <img class="experience__img" src="assets/decod_print.png" alt="Encriptador de texto" />
           <div class="experience__info">
             <h2 class="experience__title">Encriptador de texto</h2>
             <h3 class="experience__text">Challenge Alura Codificador</h3>
@@ -305,13 +311,14 @@
               <span class="experience__repo"
                 ><a
                   href="https://github.com/PABLORVLO/Challenge-Oracle-One-"
+                  target="_blank" rel="noopener noreferrer"
                   ><button class="experiencia__botao--repo">
                     Repositório
                   </button></a
                 ></span
               >
               <span class="experience__demo"
-                ><a href="https://pablorvlo.github.io/Challenge-Oracle-One-/"
+                ><a href="https://pablorvlo.github.io/Challenge-Oracle-One-/" target="_blank" rel="noopener noreferrer"
                   ><button class="experience__botao--demo">Ver demo</button></a
                 ></span
               >
@@ -319,26 +326,26 @@
           </div>
         </div>
 
+        <!-- Proyecto: Ahorcado (HTML + JS) -->
         <div class="experiencie__box">
-          <!-- Pon el logotipo/captura de pantalla de tu proyecto -->
-          <img class="experience__img" src="assets\forca_print.png" />
+          <img class="experience__img" src="assets/forca_print.png" alt="Juego Ahorcado" />
           <div class="experience__info">
             <h2 class="experience__title">
               Juego creado con HTML y JavaScript
             </h2>
             <h3 class="experience__text">Challenge Oracle</h3>
             <div class="experience__description">
-              <!-- Pon el enlace del proyecto en Github o GithubPages -->
               <span class="experience__repo"
                 ><a
                   href="https://github.com/alura-challenges/challenge-one-juego-ahorcado"
+                  target="_blank" rel="noopener noreferrer"
                   ><button class="experiencia__botao--repo">
                     Repositório
                   </button></a
                 ></span
               >
               <span class="experience__demo"
-                ><a href=""
+                ><a href="#" aria-disabled="true"
                   ><button class="experience__botao--demo">Ver demo</button></a
                 ></span
               >
@@ -346,24 +353,24 @@
           </div>
         </div>
 
+        <!-- Proyecto: Encriptador (Oracle) -->
         <div class="experiencie__box">
-          <!-- Pon el logotipo/captura de pantalla de tu proyecto -->
-          <img class="experience__img" src="assets\secretcode_print.png" />
+          <img class="experience__img" src="assets/secretcode_print.png" alt="Encriptador Oracle" />
           <div class="experience__info">
             <h2 class="experience__title">Encriptador de texto</h2>
             <h3 class="experience__text">Challenge Oracle</h3>
             <div class="experience__description">
-              <!-- Pon el enlace del proyecto en Github o GithubPages -->
               <span class="experience__repo">
                 <a
                   href="https://github.com/alura-challenges/challenge-one-encriptador-latam"
+                  target="_blank" rel="noopener noreferrer"
                 >
                   <button class="experiencia__botao--repo">Repositório</button>
                 </a>
               </span>
 
               <span class="experience__demo">
-                <a href=""
+                <a href="#" aria-disabled="true"
                   ><button class="experience__botao--demo">Ver demo</button></a
                 >
               </span>
@@ -371,39 +378,167 @@
           </div>
         </div>
 
+        <!-- Proyecto: Ahorcado (HTML, CSS, JS) -->
         <div class="experiencie__box">
-          <img class="experience__img" src="assets\forca2_print.png" />
+          <img class="experience__img" src="assets/forca2_print.png" alt="Juego Ahorcado completo" />
           <div class="experience__info">
             <h2 class="experience__title">
               Juego creado con HTML, CSS y JavaScript
             </h2>
             <h3 class="experience__text">Challenge Oracle</h3>
             <div class="experience__description">
-              <!-- Pon el enlace del proyecto en Github o GithubPages -->
               <span class="experience__repo"
                 ><a
                   href="https://github.com/alura-challenges/challenge-one-juego-ahorcado"
+                  target="_blank" rel="noopener noreferrer"
                   ><button class="experiencia__botao--repo">
                     Repositório
                   </button></a
                 ></span
               >
               <span class="experience__demo"
-                ><a href=""
+                ><a href="#" aria-disabled="true"
                   ><button class="experience__botao--demo">Ver demo</button></a
                 ></span
               >
             </div>
           </div>
         </div>
+
+        <!-- ===== NUEVOS PROYECTOS AGREGADOS ===== -->
+
+        <!-- CODEC MULTIMEDIA -->
+        <div class="experiencie__box">
+          <img
+            class="experience__img"
+            src="https://dummyimage.com/800x450/111827/e5e7eb.png&text=Codec+Multimedia"
+            alt="Codec Multimedia"
+          />
+          <div class="experience__info">
+            <h2 class="experience__title">Codec Multimedia</h2>
+            <h3 class="experience__text">Estudio creativo y de producción</h3>
+            <p class="experience__summary" style="margin:8px 0 12px;">
+              Servicios: Diseño Gráfico y Animación 2D, Producción Audiovisual
+              (comerciales, documentales, videos corporativos), Transmisión en Vivo,
+              Servicio de Drone y Producción de Audio (cuñas, narraciones, locución).
+            </p>
+            <div class="experience__description">
+              <span class="experience__demo">
+                <a
+                  href="https://blue-kudu-944389.hostingersite.com/"
+                  target="_blank" rel="noopener noreferrer"
+                  ><button class="experience__botao--demo">Ver sitio</button></a
+                >
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BELFARIZ (Tienda de ropa online) -->
+        <div class="experiencie__box">
+          <img
+            class="experience__img"
+            src="https://dummyimage.com/800x450/052e16/eaffd0.png&text=Belfariz+-+Tienda+de+Ropa"
+            alt="Belfariz Tienda Online"
+          />
+          <div class="experience__info">
+            <h2 class="experience__title">Belfariz</h2>
+            <h3 class="experience__text">E-commerce de moda</h3>
+            <div class="experience__description">
+              <span class="experience__demo">
+                <a
+                  href="https://springgreen-echidna-424420.hostingersite.com/"
+                  target="_blank" rel="noopener noreferrer"
+                  ><button class="experience__botao--demo">Ver sitio</button></a
+                >
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- LOS PUMAMAKES (Fundación con blog) -->
+        <div class="experiencie__box">
+          <img
+            class="experience__img"
+            src="https://dummyimage.com/800x450/1e3a8a/dbeafe.png&text=Fundaci%C3%B3n+Los+Pumamakes"
+            alt="Fundación Los Pumamakes"
+          />
+          <div class="experience__info">
+            <h2 class="experience__title">Los Pumamakes</h2>
+            <h3 class="experience__text">Sitio institucional + Blog</h3>
+            <div class="experience__description">
+              <span class="experience__demo">
+                <a
+                  href="https://lospumamakes.com/"
+                  target="_blank" rel="noopener noreferrer"
+                  ><button class="experience__botao--demo">Ver sitio</button></a
+                >
+              </span>
+              <span class="experience__repo" style="margin-left:8px;">
+                <a
+                  href="https://lospumamakes.com/blog"
+                  target="_blank" rel="noopener noreferrer"
+                  ><button class="experiencia__botao--repo">Ver blog</button></a
+                >
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SISTEMA DE INVENTARIO -->
+        <div class="experiencie__box">
+          <img
+            class="experience__img"
+            src="https://dummyimage.com/800x450/3f3f46/f4f4f5.png&text=Sistema+de+Inventario"
+            alt="Sistema de Inventario"
+          />
+          <div class="experience__info">
+            <h2 class="experience__title">Sistema de Inventario</h2>
+            <h3 class="experience__text">Gestión de stock y productos</h3>
+            <p class="experience__summary" style="margin:8px 0 12px;">
+              <strong>Credenciales de prueba:</strong> usuario <code>admin</code>,
+              contraseña <code>12345</code>.
+            </p>
+            <div class="experience__description">
+              <span class="experience__demo">
+                <a href="#" aria-disabled="true"
+                  ><button class="experience__botao--demo">Ver demo</button></a
+                >
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PIXEL PLAY (Tienda de juegos / Zona gamer) -->
+        <div class="experiencie__box">
+          <img
+            class="experience__img"
+            src="https://dummyimage.com/800x450/0b1026/c7d2fe.png&text=Pixel+Play+-+Zona+Gamer"
+            alt="Pixel Play - Zona Gamer"
+          />
+          <div class="experience__info">
+            <h2 class="experience__title">Pixel Play</h2>
+            <h3 class="experience__text">Tienda de juegos y zona gamer</h3>
+            <div class="experience__description">
+              <span class="experience__demo">
+                <a
+                  href="https://pixel-play-tau.vercel.app/detalhe-produto.html?id=14"
+                  target="_blank" rel="noopener noreferrer"
+                  ><button class="experience__botao--demo">Ver sitio</button></a
+                >
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- ===== FIN NUEVOS PROYECTOS ===== -->
+
       </section>
-     
 
       <!-- Sección de Contacto -->
       <section class="formcontato" id="contacto">
         <div class="formcontato__contacto">
           <div class="formcontato--esquerda">
-            <img class="formcontato__img" src="assets\contact_image.png" />
+            <img class="formcontato__img" src="assets/contact_image.png" alt="Contacto" />
           </div>
           <div class="formcontato__text">
             <h2 class="formcontato__title">Contacto</h2>
@@ -451,7 +586,7 @@
                 ></textarea>
                 <i class="validar-estado fas fa-times-circle"></i>
               </div>
-            
+
               <a href="mailto:pablorevelo209@gmail.com" id="enviar">
                 <input type="submit" class="formcontato__botao" value="Enviar mensaje">
               </a>
