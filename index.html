@@ -1,576 +1,668 @@
 <!-- @format -->
-
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--link icono-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
     />
-    <!-- Referencia de la hoja de estilo de Css -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Fonte del Proyecto Raleway -->
+    <title>Pablo Revelo — Portafolio</title>
+
+    <!-- Bootstrap 5.3 + Bootstrap Icons -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="main.css" />
-    <!-- CSS BEM-->
-    <link rel="stylesheet" href="./css/about/about.css" />
-    <link rel="stylesheet" href="./css/about/about__container.css" />
-    <link rel="stylesheet" href="./css/academic/academic.css" />
-    <link rel="stylesheet" href="./css/academic/academicCourses.css" />
-    <link rel="stylesheet" href="./css/contacto/contacto.css" />
-    <link rel="stylesheet" href="./css/contacto/form--esquema.css" />
-    <link rel="stylesheet" href="./css/contacto/form__text.css" />
-    <link rel="stylesheet" href="./css/exp/exp.css" />
-    <link rel="stylesheet" href="./css/exp/exp__box.css" />
-    <link rel="stylesheet" href="./css/footer/footer.css" />
-    <link rel="stylesheet" href="./css/hobbies/hobbies.css" />
-    <link rel="stylesheet" href="./css/hobbies/hobbies__line.css" />
-    <link rel="stylesheet" href="./css/menu/menu-header.css" />
-    <link rel="stylesheet" href="./css/menu/menu-nav.css" />
-    <link rel="stylesheet" href="./css/menu/menu.css" />
-    <link rel="stylesheet" href="./css/skills/skills.css" />
-    <link rel="stylesheet" href="./css/skills/skills__line.css" />
-    <link rel="stylesheet" href="./css/title/title.css" />
-    <link rel="stylesheet" href="./css/title/title-img.css" />
-    <link rel="stylesheet" href="./css/title/title__container.css" />
-    <title>Mi Portafolio</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon simple (opcional) -->
+    <link
+      rel="icon"
+      href="https://cdn-icons-png.flaticon.com/512/3271/3271001.png"
+      type="image/png"
+    />
+
     <style>
-      /* SVG logos responsive */
-      .logo-svg { width: 100%; height: auto; display:block; }
-      .experience__img { object-fit: cover; }
-      /* Pequeños ajustes para los contenedores SVG y <img> */
-      .thumb { width: 100%; max-width: 800px; aspect-ratio: 16/9; background:#0b1026; border-radius: 8px; overflow:hidden; }
-      .thumb--light { background:#f0fdf4; }
-      .thumb--gray { background:#111827; }
+      /* Ajustes de marca y look&feel */
+      :root {
+        --brand-start: #22d3ee;
+        --brand-end: #a78bfa;
+      }
+      .brand-gradient {
+        background: linear-gradient(90deg, var(--brand-start), var(--brand-end));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .navbar-brand img {
+        height: 40px;
+        width: auto;
+      }
+      /* HERO */
+      .hero {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1rem;
+        background:
+          radial-gradient(1000px 500px at 10% -10%, rgba(167,139,250,0.15), transparent 60%),
+          radial-gradient(1000px 500px at 110% 10%, rgba(34,211,238,0.15), transparent 60%),
+          linear-gradient(180deg, rgba(2,6,23,0.5), rgba(2,6,23,0.2));
+      }
+      .hero-illustration {
+        width: 120px;
+        height: 120px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
+        display: grid;
+        place-content: center;
+      }
+      .hero-illustration i {
+        font-size: 56px;
+        color: #0b1026;
+      }
+
+      /* Tarjetas de proyectos */
+      .project-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      }
+      .thumb {
+        width: 100%;
+        aspect-ratio: 16/9;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        background: #0b1026;
+        display: block;
+      }
+      .thumb img,
+      .thumb svg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Avatares/íconos de skills y hobbies */
+      .icon-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.5rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        margin: 0.25rem;
+        white-space: nowrap;
+      }
+
+      /* Imagen de contacto */
+      .contact-img {
+        max-width: 420px;
+        width: 100%;
+        border-radius: 1rem;
+      }
+
+      /* Footer */
+      footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      /* Utilidades */
+      .section-title {
+        margin-bottom: 1rem;
+      }
+      .section-subtitle {
+        opacity: 0.9;
+        margin-bottom: 2rem;
+      }
+      .divider {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.08);
+      }
     </style>
   </head>
   <body>
-    <div class="tudo">
-      <!-- Sección del Menú  -->
-      <section class="menu">
-        <header class="menu__header">
-          <a href="#top" class="menu__brand" aria-label="Inicio">
-            <img
-              src="https://dummyimage.com/120x40/0f172a/ffffff.png&text=Pablo+Revelo"
-              alt="Logo Pablo Revelo"
-              style="height:40px; width:auto;"
-            />
-          </a>
-        </header>
-        <nav class="menu-nav">
-          <ul class="menu__list">
-            <li class="menu__list__item"><a href="#sobre-mi">Sobre mi</a></li>
-            <li class="menu__list__item"><a href="#skills">Skills</a></li>
-            <li class="menu__list__item"><a href="#hobbies">Hobbies</a></li>
-            <li class="menu__list__item"><a href="#formacion">Formación</a></li>
-            <li class="menu__list__item"><a href="#xp">Proyectos</a></li>
-            <li class="menu__list__item">
-              <a href="#contacto">pablorevelo209@gmail.com</a>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary border-bottom">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#top">
+          <img
+            src="https://dummyimage.com/120x40/0f172a/ffffff.png&text=Pablo+Revelo"
+            alt="Pablo Revelo"
+          />
+          <span class="fw-semibold">Pablo Revelo</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Menú"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="mainNav" class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+            <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+            <li class="nav-item"><a class="nav-link" href="#hobbies">Hobbies</a></li>
+            <li class="nav-item"><a class="nav-link" href="#xp">Proyectos</a></li>
+            <li class="nav-item">
+              <a class="btn btn-outline-primary ms-lg-3" href="#contacto">
+                <i class="bi bi-envelope"></i>
+                Contacto
+              </a>
             </li>
           </ul>
-          <li class="menu__list__item__contato">
-            <a href="#contacto">pablorevelo209@gmail.com</a>
-          </li>
-        </nav>
-      </section>
+        </div>
+      </div>
+    </nav>
 
-      <!-- Sección del Header/Title/Hero -->
-      <section class="title" id="top">
-        <div class="title__div">
-          <img
-            class="title__profile"
-            src="https://cdn-icons-png.flaticon.com/512/3271/3271001.png"
-            alt="Avatar de Pablo Revelo"
-          />
-          <div class="title__container">
-            <h2 class="title__bio">
-              Hola, mi nombre es Pablo Revelo y construyo paginas web
-            </h2>
-            <h3 class="title__subsection">
-              Soy egresado de Oracle ONE de Alura Latam y me especializo en desarrollo web frontend. Apasionado por crear interfaces interactivas y experiencias digitales impactantes, me mantengo actualizado en las últimas tendencias y tecnologías. Comprometido con el aprendizaje continuo, trabajo en equipo y resolución efectiva de problemas.
-            </h3>
-            <ul class="title__network">
-              <li class="title__network__item">
-                <a target="_blank" href="https://github.com/PABLORVLO"
-                  >Github <img src="assets/arrow.png" alt="" />
-                </a>
-              </li>
-              <li class="title__network__item">
+    <!-- HERO -->
+    <header id="top" class="py-5">
+      <div class="container">
+        <div class="p-4 p-md-5 hero">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-12 col-lg-7">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="hero-illustration">
+                  <i class="bi bi-code-slash"></i>
+                </div>
+                <div>
+                  <h1 class="display-5 fw-bold mb-0">
+                    Hola, soy <span class="brand-gradient">desarrollador de software</span>
+                  </h1>
+                </div>
+              </div>
+              <p class="lead mb-4">
+                Creo productos web rápidos, accesibles y mantenibles. Me enfoco en
+                <strong>Frontend</strong> (JS/TS, React, Bootstrap) y tengo base en
+                <strong>Backend</strong> (Node.js, PHP). Me apasiona transformar ideas en
+                interfaces claras, medir impacto con buenas prácticas y colaborar con equipos para
+                entregar valor continuo.
+              </p>
+              <div class="d-flex flex-wrap gap-2">
                 <a
+                  class="btn btn-primary"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/PABLORVLO"
+                >
+                  <i class="bi bi-github"></i> GitHub
+                </a>
+                <a
+                  class="btn btn-outline-light"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   href="https://www.linkedin.com/in/pablo-alexander-revelo-quenan-4926351b3/"
-                  >Linkedin <img src="assets/arrow.png" alt=""
-                /></a>
-              </li>
-              <li class="title__network__item">
-                <a target="_blank" href="https://www.instagram.com/p_arq2/"
-                  >Instagram <img src="assets/arrow.png" alt=""
-                /></a>
-              </li>
-              <li class="title__network__item">
-                <a target="_blank" href="">Currículum <img src="assets/arrow.png" alt=""
-                /></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Sección sobre mi -->
-      <section class="about" id="sobre-mi">
-        <div class="about__container">
-          <h3 class="about__title">Sobre mi</h3>
-          <p class="about__paragraph">
-            Soy Diseñador UX de las certificaciones de Google y profesional de soporte TI apasionado por brindar soluciones técnicas y asistencia a los usuarios. Además, soy un estudiante entusiasta de desarrollo web frontend. Mi experiencia en soporte TI me brinda una base sólida en resolución de problemas y atención al cliente, mientras que mi formación en desarrollo frontend me permite crear interfaces interactivas y atractivas. Mi objetivo es combinar mis habilidades técnicas y mi creatividad para ofrecer soluciones tecnológicas innovadoras y satisfacer las necesidades de los usuarios en el mundo digital en constante evolución.
-          </p>
-          <img src="assets/signature.png" alt="Firma" />
-        </div>
-      </section>
-
-      <!-- Sección de Skills -->
-      <section class="skills" id="skills">
-        <h3 class="skills__title">Skills</h3>
-        <div class="skills__line">
-          <div class="skills__box">
-            <ul>
-              <li class="skills__img"><img src="assets/htlm.png" alt="HTML5" /></li>
-              <li class="skills__name">HTML 5</li>
-            </ul>
-          </div>
-          <div class="skills__box">
-            <ul>
-              <li class="skills__img"><img src="assets/js_icon.png" alt="JavaScript" /></li>
-              <li class="skills__name">Javascript</li>
-            </ul>
-          </div>
-          <div class="skills__box">
-            <ul>
-              <li class="skills__img"><img src="assets/php_icon.png" alt="PHP" /></li>
-              <li class="skills__name">PHP</li>
-            </ul>
-          </div>
-          <div class="skills__box">
-            <ul>
-              <li class="skills__img"><img src="assets/nodejs_icon.png" alt="Node.js" /></li>
-              <li class="skills__name">Node JS</li>
-            </ul>
-          </div>
-          <div class="skills__box">
-            <ul>
-              <li class="skills__img"><img src="assets/react_icon.png" alt="React" /></li>
-              <li class="skills__name">React</li>
-            </ul>
-          </div>
-          <div class="skills__box">
-            <ul>
-              <li class="skills__img"><img src="assets/css_icon.png" alt="CSS" /></li>
-              <li class="skills__name">CSS</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Sección de Hobbies -->
-      <section class="hobbies" id="hobbies">
-        <h3 class="hobbies__title">Hobbies</h3>
-        <div class="hobbies__line">
-          <div class="hobbies__box">
-            <ul>
-              <li class="hobbies__img"><img src="assets/skate_icon.png" alt="Patinaje" /></li>
-              <li class="hobbies__name">Patinaje</li>
-            </ul>
-          </div>
-          <div class="hobbies__box">
-            <ul>
-              <li class="hobbies__img"><img src="assets/guitar_icon.png" alt="Bajo" /></li>
-              <li class="hobbies__name">Tocar bajo</li>
-            </ul>
-          </div>
-          <div class="hobbies__box">
-            <ul>
-              <li class="hobbies__img"><img src="assets/headphones_icon.png" alt="Música" /></li>
-              <li class="hobbies__name">Oir música</li>
-            </ul>
-          </div>
-          <div class="hobbies__box">
-            <ul>
-              <li class="hobbies__img"><img src="assets/tv_icon.png" alt="Ver series" /></li>
-              <li class="hobbies__name">Ver séries</li>
-            </ul>
-          </div>
-          <div class="hobbies__box">
-            <ul>
-              <li class="hobbies__img"><img src="assets/forkspoon_icon.png" alt="Cocinar" /></li>
-              <li class="hobbies__name">Cocinar</li>
-            </ul>
-          </div>
-          <div class="hobbies__box">
-            <ul>
-              <li class="hobbies__img"><img src="assets/camera_icon.png" alt="Fotografía" /></li>
-              <li class="hobbies__name">Tomar fotos</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Sección de Formación académica -->
-      <section class="academic" id="formacion">
-        <h2 class="academic__title">Formación académica</h2>
-        <div class="academic__courses">
-          <div class="academic__courses__box">
-            <ul class="academic__courses__list">
-              <li class="academic__courses__item__img">
-                <img src="assets/google.png" alt="Google" />
-              </li>
-              <li class="academic__courses__item__title">
-                <h4>Soporte TI</h4>
-              </li>
-              <li class="academic__courses__item__subtitle">
-                <p>2023 - Google</p>
-              </li>
-            </ul>
-          </div>
-          <div class="academic__courses__box">
-            <ul class="academic__courses__list">
-              <li class="academic__courses__item__img">
-                <img src="assets/alura_logo.png" alt="Alura Latam" />
-              </li>
-              <li class="academic__courses__item__title">
-                <h4>2023 - Frontend</h4>
-              </li>
-              <li class="academic__courses__item__subtitle">
-                <p> Alura Latam</p>
-              </li>
-            </ul>
-          </div>
-          <div class="academic__courses__box">
-            <ul class="academic__courses__list">
-              <li class="academic__courses__item__img">
-                <img src="assets/google.png" alt="Google" />
-              </li>
-              <li class="academic__courses__item__title">
-                <h4>UX designer</h4>
-              </li>
-              <li class="academic__courses__item__subtitle">
-                <p>2023 - Google</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Sección de Experiencia Profesional/Proyectos-->
-      <section class="experience" id="xp">
-        <h2 class="experience__section__title">Experiencia Profesional</h2>
-
-        <!-- Proyecto: Encriptador de texto -->
-        <div class="experiencie__box">
-          <img class="experience__img" src="assets/decod_print.png" alt="Encriptador de texto" />
-          <div class="experience__info">
-            <h2 class="experience__title">Encriptador de texto</h2>
-            <h3 class="experience__text">Challenge Alura Codificador</h3>
-            <div class="experience__description">
-              <span class="experience__repo"
-                ><a
-                  href="https://github.com/PABLORVLO/Challenge-Oracle-One-"
-                  target="_blank" rel="noopener noreferrer"
-                  ><button class="experiencia__botao--repo">Repositório</button></a
-                ></span>
-              <span class="experience__demo"
-                ><a href="https://pablorvlo.github.io/Challenge-Oracle-One-/" target="_blank" rel="noopener noreferrer"
-                  ><button class="experience__botao--demo">Ver demo</button></a
-                ></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Proyecto: Ahorcado (HTML + JS) -->
-        <div class="experiencie__box">
-          <img class="experience__img" src="assets/forca_print.png" alt="Juego Ahorcado" />
-          <div class="experience__info">
-            <h2 class="experience__title">Juego creado con HTML y JavaScript</h2>
-            <h3 class="experience__text">Challenge Oracle</h3>
-            <div class="experience__description">
-              <span class="experience__repo"
-                ><a
-                  href="https://github.com/alura-challenges/challenge-one-juego-ahorcado"
-                  target="_blank" rel="noopener noreferrer"
-                  ><button class="experiencia__botao--repo">Repositório</button></a
-                ></span>
-              <span class="experience__demo"
-                ><a href="#" aria-disabled="true"
-                  ><button class="experience__botao--demo">Ver demo</button></a
-                ></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Proyecto: Encriptador (Oracle) -->
-        <div class="experiencie__box">
-          <img class="experience__img" src="assets/secretcode_print.png" alt="Encriptador Oracle" />
-          <div class="experience__info">
-            <h2 class="experience__title">Encriptador de texto</h2>
-            <h3 class="experience__text">Challenge Oracle</h3>
-            <div class="experience__description">
-              <span class="experience__repo">
+                >
+                  <i class="bi bi-linkedin"></i> LinkedIn
+                </a>
                 <a
-                  href="https://github.com/alura-challenges/challenge-one-encriptador-latam"
-                  target="_blank" rel="noopener noreferrer"
+                  class="btn btn-outline-light"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.instagram.com/p_arq2/"
                 >
-                  <button class="experiencia__botao--repo">Repositório</button>
+                  <i class="bi bi-instagram"></i> Instagram
                 </a>
-              </span>
-              <span class="experience__demo">
-                <a href="#" aria-disabled="true"
-                  ><button class="experience__botao--demo">Ver demo</button></a
-                >
-              </span>
+                <!-- Si tienes CV, pon el link aquí -->
+                <a class="btn btn-outline-primary disabled" href="#" aria-disabled="true">
+                  <i class="bi bi-file-earmark-text"></i> Currículum
+                </a>
+              </div>
+            </div>
+            <div class="col-12 col-lg-5 text-lg-end">
+              <img
+                class="img-fluid rounded-4"
+                src="https://cdn-icons-png.flaticon.com/512/3271/3271001.png"
+                alt="Avatar"
+                style="max-width: 200px"
+              />
             </div>
           </div>
         </div>
+      </div>
+    </header>
 
-        <!-- Proyecto: Ahorcado (HTML, CSS, JS) -->
-        <div class="experiencie__box">
-          <img class="experience__img" src="assets/forca2_print.png" alt="Juego Ahorcado completo" />
-          <div class="experience__info">
-            <h2 class="experience__title">Juego creado con HTML, CSS y JavaScript</h2>
-            <h3 class="experience__text">Challenge Oracle</h3>
-            <div class="experience__description">
-              <span class="experience__repo"
-                ><a
-                  href="https://github.com/alura-challenges/challenge-one-juego-ahorcado"
-                  target="_blank" rel="noopener noreferrer"
-                  ><button class="experiencia__botao--repo">Repositório</button></a
-                ></span>
-              <span class="experience__demo"
-                ><a href="#" aria-disabled="true"
-                  ><button class="experience__botao--demo">Ver demo</button></a
-                ></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ===== NUEVOS PROYECTOS (con logos reales o SVGs temáticos) ===== -->
-
-        <!-- CODEC MULTIMEDIA -->
-        <div class="experiencie__box">
-          <div class="thumb thumb--gray">
-            <!-- SVG temático cámara + play -->
-            <svg class="logo-svg" viewBox="0 0 800 450" role="img" aria-label="Codec Multimedia Logo">
-              <defs>
-                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#22d3ee"/>
-                  <stop offset="100%" stop-color="#a78bfa"/>
-                </linearGradient>
-              </defs>
-              <rect width="800" height="450" fill="#0b1026"/>
-              <g transform="translate(130,110)">
-                <rect x="0" y="0" width="380" height="230" rx="24" fill="url(#g1)"/>
-                <circle cx="100" cy="115" r="64" fill="#0b1026"/>
-                <polygon points="140,90 200,115 140,140" fill="#0b1026"/>
-                <rect x="330" y="40" width="120" height="60" rx="12" fill="#22d3ee" opacity=".7"/>
-              </g>
-              <text x="540" y="210" fill="#e5e7eb" font-family="Raleway, Arial" font-size="48" font-weight="700">CODEC</text>
-              <text x="540" y="260" fill="#e5e7eb" font-family="Raleway, Arial" font-size="36" opacity=".85">MULTIMEDIA</text>
-            </svg>
-          </div>
-          <div class="experience__info">
-            <h2 class="experience__title">Codec Multimedia</h2>
-            <h3 class="experience__text">Estudio creativo y de producción</h3>
-            <p class="experience__summary" style="margin:8px 0 12px;">
-              Servicios: Diseño Gráfico y Animación 2D, Producción Audiovisual (comerciales, documentales, videos corporativos), Transmisión en Vivo, Servicio de Drone y Producción de Audio (cuñas, narraciones, locución).
+    <!-- SOBRE MI -->
+    <section id="sobre-mi" class="py-5">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7">
+            <h2 class="section-title">Sobre mí</h2>
+            <p class="mb-3">
+              Soy diseñador UX certificado por Google y profesional en soporte TI, con sólida
+              orientación a servicio y resolución de problemas. Combino esa base con desarrollo
+              web para diseñar y construir aplicaciones usables, accesibles y escalables.
             </p>
-            <div class="experience__description">
-              <span class="experience__demo">
-                <a href="https://blue-kudu-944389.hostingersite.com/" target="_blank" rel="noopener noreferrer">
-                  <button class="experience__botao--demo">Ver sitio</button>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- BELFARIZ (Tienda de ropa online) -->
-        <div class="experiencie__box">
-          <div class="thumb thumb--light">
-            <!-- SVG temático percha/moda -->
-            <svg class="logo-svg" viewBox="0 0 800 450" role="img" aria-label="Belfariz Logo">
-              <rect width="800" height="450" fill="#f0fdf4"/>
-              <path d="M400 120c-22 0-40 18-40 40 0 10 4 19 11 26l-151 82c-9 5-13 16-8 25s16 13 25 8l163-89 163 89c9 5 20 1 25-8s1-20-8-25l-151-82c7-7 11-16 11-26 0-22-18-40-40-40z" fill="#052e16"/>
-              <text x="50%" y="330" text-anchor="middle" fill="#052e16" font-family="Raleway, Arial" font-size="64" font-weight="800" letter-spacing="2">BELFARIZ</text>
-            </svg>
-          </div>
-          <div class="experience__info">
-            <h2 class="experience__title">Belfariz</h2>
-            <h3 class="experience__text">E-commerce de moda</h3>
-            <div class="experience__description">
-              <span class="experience__demo">
-                <a href="https://springgreen-echidna-424420.hostingersite.com/" target="_blank" rel="noopener noreferrer">
-                  <button class="experience__botao--demo">Ver sitio</button>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- LOS PUMAMAKES (Fundación con blog) -->
-        <div class="experiencie__box">
-          <img
-            class="experience__img"
-            src="https://ik.imagekit.io/xuqvogqof/Pumamakes/membrete%20pumamake.png?updatedAt=1743531783463"
-            alt="Fundación Los Pumamakes - Logo"
-          />
-          <div class="experience__info">
-            <h2 class="experience__title">Los Pumamakes</h2>
-            <h3 class="experience__text">Sitio institucional + Blog</h3>
-            <div class="experience__description">
-              <span class="experience__demo">
-                <a href="https://lospumamakes.com/" target="_blank" rel="noopener noreferrer">
-                  <button class="experience__botao--demo">Ver sitio</button>
-                </a>
-              </span>
-              <span class="experience__repo" style="margin-left:8px;">
-                <a href="https://lospumamakes.com/blog" target="_blank" rel="noopener noreferrer">
-                  <button class="experiencia__botao--repo">Ver blog</button>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- SISTEMA DE INVENTARIO -->
-        <div class="experiencie__box">
-          <div class="thumb">
-            <!-- SVG temático inventario/cajas -->
-            <svg class="logo-svg" viewBox="0 0 800 450" role="img" aria-label="Sistema de Inventario Logo">
-              <rect width="800" height="450" fill="#111827"/>
-              <g transform="translate(220,110)" fill="#c7d2fe">
-                <rect x="0" y="0" width="160" height="120" rx="10"/>
-                <rect x="180" y="0" width="160" height="120" rx="10"/>
-                <rect x="90" y="130" width="160" height="120" rx="10"/>
-                <path d="M20 30h120v20H20zM200 30h120v20H200zM110 160h120v20H110z" fill="#0b1026"/>
-              </g>
-              <text x="50%" y="360" text-anchor="middle" fill="#e5e7eb" font-family="Raleway, Arial" font-size="42" font-weight="700">SISTEMA DE INVENTARIO</text>
-            </svg>
-          </div>
-          <div class="experience__info">
-            <h2 class="experience__title">Sistema de Inventario</h2>
-            <h3 class="experience__text">Gestión de stock y productos</h3>
-            <p class="experience__summary" style="margin:8px 0 12px;">
-              <strong>Credenciales de prueba:</strong> usuario <code>admin</code>, contraseña <code>12345</code>.
+            <p class="mb-0">
+              Disfruto trabajar con equipos multidisciplinares, seguir estándares,
+              <em>clean code</em>, control de versiones y CI/CD, y mantener comunicación clara con
+              clientes y stakeholders para lograr resultados medibles.
             </p>
-            <div class="experience__description">
-              <span class="experience__demo">
-                <a href="#" aria-disabled="true">
-                  <button class="experience__botao--demo">Ver demo</button>
+          </div>
+          <div class="col-lg-5 text-lg-end">
+            <!-- Firma o imagen -->
+            <img
+              src="assets/signature.png"
+              alt="Firma"
+              class="img-fluid rounded-4 border border-1 border-secondary-subtle"
+              style="max-width: 300px"
+              onerror="this.style.display='none';"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-5">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">
+          Tecnologías que uso en proyectos reales.
+        </p>
+        <div class="d-flex flex-wrap">
+          <span class="icon-pill"><i class="bi bi-filetype-html"></i> HTML5</span>
+          <span class="icon-pill"><i class="bi bi-filetype-css"></i> CSS3</span>
+          <span class="icon-pill"><i class="bi bi-filetype-js"></i> JavaScript</span>
+          <span class="icon-pill"><i class="bi bi-boxes"></i> Bootstrap</span>
+          <span class="icon-pill"><i class="bi bi-node-plus"></i> Node.js</span>
+          <span class="icon-pill"><i class="bi bi-filetype-php"></i> PHP</span>
+          <span class="icon-pill"><i class="bi bi-react"></i> React</span>
+          <span class="icon-pill"><i class="bi bi-git"></i> Git &amp; GitHub</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- HOBBIES -->
+    <section id="hobbies" class="py-5">
+      <div class="container">
+        <h2 class="section-title">Hobbies</h2>
+        <p class="section-subtitle">Lo que disfruto fuera del código.</p>
+        <div class="d-flex flex-wrap">
+          <span class="icon-pill"><i class="bi bi-bicycle"></i> Patinaje</span>
+          <span class="icon-pill"><i class="bi bi-music-note-beamed"></i> Tocar bajo</span>
+          <span class="icon-pill"><i class="bi bi-headphones"></i> Oír música</span>
+          <span class="icon-pill"><i class="bi bi-tv"></i> Ver series</span>
+          <span class="icon-pill"><i class="bi bi-egg-fried"></i> Cocinar</span>
+          <span class="icon-pill"><i class="bi bi-camera"></i> Tomar fotos</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PROYECTOS -->
+    <section id="xp" class="py-5">
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+          <h2 class="section-title mb-0">Proyectos</h2>
+          <span class="badge text-bg-primary">+6 proyectos</span>
+        </div>
+
+        <div class="row g-4">
+          <!-- Encriptador de texto (Alura) -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 project-card">
+              <div class="thumb">
+                <img src="assets/decod_print.png" alt="Encriptador de texto" />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Encriptador de texto</h5>
+                <p class="card-text text-secondary mb-4">Challenge Alura Codificador</p>
+                <div class="mt-auto d-flex gap-2">
+                  <a
+                    class="btn btn-outline-light btn-sm"
+                    href="https://github.com/PABLORVLO/Challenge-Oracle-One-"
+                    target="_blank" rel="noopener noreferrer"
+                  >
+                    <i class="bi bi-github"></i> Repo
+                  </a>
+                  <a
+                    class="btn btn-primary btn-sm"
+                    href="https://pablorvlo.github.io/Challenge-Oracle-One-/"
+                    target="_blank" rel="noopener noreferrer"
+                  >
+                    <i class="bi bi-box-arrow-up-right"></i> Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ahorcado (HTML+JS) -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 project-card">
+              <div class="thumb">
+                <img src="assets/forca_print.png" alt="Juego Ahorcado" />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Ahorcado</h5>
+                <p class="card-text text-secondary mb-4">HTML + JavaScript</p>
+                <div class="mt-auto d-flex gap-2">
+                  <a
+                    class="btn btn-outline-light btn-sm"
+                    href="https://github.com/alura-challenges/challenge-one-juego-ahorcado"
+                    target="_blank" rel="noopener noreferrer"
+                  >
+                    <i class="bi bi-github"></i> Repo
+                  </a>
+                  <a class="btn btn-secondary btn-sm disabled" href="#" aria-disabled="true">
+                    Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Encriptador (Oracle) -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 project-card">
+              <div class="thumb">
+                <img src="assets/secretcode_print.png" alt="Encriptador Oracle" />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Encriptador Oracle</h5>
+                <p class="card-text text-secondary mb-4">Challenge Oracle</p>
+                <div class="mt-auto d-flex gap-2">
+                  <a
+                    class="btn btn-outline-light btn-sm"
+                    href="https://github.com/alura-challenges/challenge-one-encriptador-latam"
+                    target="_blank" rel="noopener noreferrer"
+                  >
+                    <i class="bi bi-github"></i> Repo
+                  </a>
+                  <a class="btn btn-secondary btn-sm disabled" href="#" aria-disabled="true">
+                    Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ahorcado (HTML, CSS, JS) -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 project-card">
+              <div class="thumb">
+                <img src="assets/forca2_print.png" alt="Ahorcado completo" />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Ahorcado Completo</h5>
+                <p class="card-text text-secondary mb-4">HTML, CSS y JavaScript</p>
+                <div class="mt-auto d-flex gap-2">
+                  <a
+                    class="btn btn-outline-light btn-sm"
+                    href="https://github.com/alura-challenges/challenge-one-juego-ahorcado"
+                    target="_blank" rel="noopener noreferrer"
+                  >
+                    <i class="bi bi-github"></i> Repo
+                  </a>
+                  <a class="btn btn-secondary btn-sm disabled" href="#" aria-disabled="true">
+                    Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CODEC MULTIMEDIA -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 project-card">
+              <div class="thumb">
+                <!-- SVG temático cámara + play -->
+                <svg viewBox="0 0 800 450" role="img" aria-label="Codec Multimedia">
+                  <defs>
+                    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#22d3ee" />
+                      <stop offset="100%" stop-color="#a78bfa" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="800" height="450" fill="#0b1026" />
+                  <g transform="translate(130,110)">
+                    <rect x="0" y="0" width="380" height="230" rx="24" fill="url(#g1)" />
+                    <circle cx="100" cy="115" r="64" fill="#0b1026" />
+                    <polygon points="140,90 200,115 140,140" fill="#0b1026" />
+                    <rect x="330" y="40" width="120" height="60" rx="12" fill="#22d3ee" opacity=".7" />
+                  </g>
+                  <text x="540" y="210" fill="#e5e7eb" font-family="system-ui, Arial" font-size="48" font-weight="700">CODEC</text>
+                  <text x="540" y="260" fill="#e5e7eb" font-family="system-ui, Arial" font-size="36" opacity=".85">MULTIMEDIA</text>
+                </svg>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Codec Multimedia</h5>
+                <p class="card-text text-secondary">
+                  Diseño/Animación 2D, Producción audiovisual, Streaming, Drones y Audio.
+                </p>
+                <div class="mt-auto d-flex gap-2">
+                  <a
+                    class="btn btn-primary btn-sm"
+                    href="https://blue-kudu-944389.hostingersite.com/"
+                    target="_blank" rel="noopener noreferrer"
+                  >
+                    <i class="bi bi-box-arrow-up-right"></i> Ver sitio
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BELFARIZ (Tienda de ropa) -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 project-card">
+              <div class="thumb">
+                <!-- SVG percha/moda -->
+                <svg viewBox="0 0 800 450" role="img" aria-label="Belfariz">
+                  <rect width="800" height="450" fill="#f0fdf4" />
+                  <path d="M400 120c-22 0-40 18-40 40 0 10 4 19 11 26l-151 82c-9 5-13 16-8 25s16 13 25 8l163-89 163 89c9 5 20 1 25-8s1-20-8-25l-151-82c7-7 11-16 11-26 0-22-18-40-40-40z" fill="#052e16" />
+                  <text x="50%" y="330" text-anchor="middle" fill="#052e16" font-family="system-ui, Arial" font-size="64" font-weight="800" letter-spacing="2">BELFARIZ</text>
+                </svg>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Belfariz</h5>
+                <p class="card-text text-secondary">E-commerce de moda</p>
+                <div class="mt-auto d-flex gap-2">
+                  <a
+                    class="btn btn-primary btn-sm"
+                    href="https://springgreen-echidna-424420.hostingersite.com/"
+                    target="_blank" rel="noopener noreferrer"
+                  >
+                    <i class="bi bi-box-arrow-up-right"></i> Ver sitio
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LOS PUMAMAKES (Fundación) -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 project-card">
+              <div class="thumb">
+                <img
+                  src="https://ik.imagekit.io/xuqvogqof/Pumamakes/membrete%20pumamake.png?updatedAt=1743531783463"
+                  alt="Fundación Los Pumamakes"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Los Pumamakes</h5>
+                <p class="card-text text-secondary">Sitio institucional + Blog</p>
+                <div class="mt-auto d-flex gap-2 flex-wrap">
+                  <a
+                    class="btn btn-primary btn-sm"
+                    href="https://lospumamakes.com/"
+                    target="_blank" rel="noopener noreferrer"
+                  >
+                    <i class="bi bi-box-arrow-up-right"></i> Ver sitio
+                  </a>
+                  <a
+                    class="btn btn-outline-light btn-sm"
+                    href="https://lospumamakes.com/blog"
+                    target="_blank" rel="noopener noreferrer"
+                  >
+                    <i class="bi bi-journal-text"></i> Ver blog
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SISTEMA DE INVENTARIO -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 project-card">
+              <div class="thumb">
+                <!-- SVG cajas/stock -->
+                <svg viewBox="0 0 800 450" role="img" aria-label="Sistema de Inventario">
+                  <rect width="800" height="450" fill="#111827" />
+                  <g transform="translate(220,110)" fill="#c7d2fe">
+                    <rect x="0" y="0" width="160" height="120" rx="10" />
+                    <rect x="180" y="0" width="160" height="120" rx="10" />
+                    <rect x="90" y="130" width="160" height="120" rx="10" />
+                    <path d="M20 30h120v20H20zM200 30h120v20H200zM110 160h120v20H110z" fill="#0b1026" />
+                  </g>
+                  <text x="50%" y="360" text-anchor="middle" fill="#e5e7eb" font-family="system-ui, Arial" font-size="38" font-weight="700">SISTEMA DE INVENTARIO</text>
+                </svg>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Sistema de Inventario</h5>
+                <p class="card-text text-secondary mb-2">
+                  Gestión de stock y productos. <br />
+                  <small class="text-body-secondary">
+                    Credenciales demo: <code>admin</code> / <code>12345</code>
+                  </small>
+                </p>
+                <div class="mt-auto d-flex gap-2">
+                  <a
+                    class="btn btn-primary btn-sm"
+                    href="https://aquamarine-magpie-125925.hostingersite.com/"
+                    target="_blank" rel="noopener noreferrer"
+                  >
+                    <i class="bi bi-box-arrow-up-right"></i> Ver demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PIXEL PLAY (Zona gamer) -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 project-card">
+              <div class="thumb">
+                <img
+                  src="https://pixel-play-tau.vercel.app/img/PIXEL.png"
+                  alt="Pixel Play - Logo"
+                />
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Pixel Play</h5>
+                <p class="card-text text-secondary">Tienda de juegos y zona gamer</p>
+                <div class="mt-auto d-flex gap-2">
+                  <a
+                    class="btn btn-primary btn-sm"
+                    href="https://pixel-play-tau.vercel.app/detalhe-produto.html?id=14"
+                    target="_blank" rel="noopener noreferrer"
+                  >
+                    <i class="bi bi-box-arrow-up-right"></i> Ver sitio
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- row -->
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="py-5">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <h2 class="section-title">Contacto</h2>
+            <p class="section-subtitle">
+              ¿Quieres construir algo conmigo? Escríbeme y conversemos.
+            </p>
+
+            <form class="row g-3" onsubmit="event.preventDefault(); window.location='mailto:pablorevelo209@gmail.com'">
+              <div class="col-md-6">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" placeholder="Tu nombre" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">E-mail</label>
+                <input type="email" class="form-control" placeholder="tu@email.com" required />
+              </div>
+              <div class="col-12">
+                <label class="form-label">Asunto</label>
+                <input type="text" class="form-control" placeholder="Motivo del mensaje" />
+              </div>
+              <div class="col-12">
+                <label class="form-label">Mensaje</label>
+                <textarea class="form-control" rows="5" placeholder="Cuéntame sobre tu proyecto"></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">
+                  <i class="bi bi-send"></i> Enviar mensaje
+                </button>
+                <a class="btn btn-outline-light ms-2" href="mailto:pablorevelo209@gmail.com">
+                  <i class="bi bi-envelope"></i> pablorevelo209@gmail.com
                 </a>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- PIXEL PLAY (Tienda de juegos / Zona gamer) -->
-        <div class="experiencie__box">
-          <img
-            class="experience__img"
-            src="https://pixel-play-tau.vercel.app/img/PIXEL.png"
-            alt="Pixel Play - Logo"
-          />
-          <div class="experience__info">
-            <h2 class="experience__title">Pixel Play</h2>
-            <h3 class="experience__text">Tienda de juegos y zona gamer</h3>
-            <div class="experience__description">
-              <span class="experience__demo">
-                <a
-                  href="https://pixel-play-tau.vercel.app/detalhe-produto.html?id=14"
-                  target="_blank" rel="noopener noreferrer"
-                  ><button class="experience__botao--demo">Ver sitio</button></a
-                >
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ===== FIN NUEVOS PROYECTOS ===== -->
-      </section>
-
-      <!-- Sección de Contacto -->
-      <section class="formcontato" id="contacto">
-        <div class="formcontato__contacto">
-          <div class="formcontato--esquerda">
-            <img class="formcontato__img" src="assets/contact_image.png" alt="Contacto" />
-          </div>
-          <div class="formcontato__text">
-            <h2 class="formcontato__title">Contacto</h2>
-            <h3 class="formcontato__subtext">¿Quieres contactarme?</h3>
-            <h3 class="formcontato__subtext">
-              Complete el siguiente formulario y me pondré en contacto con usted
-              lo antes posible.
-            </h3>
-            <form class="formcontato__form" name="form" id="form">
-              <div id="input_nombre" class="input">
-                <input
-                  class="formcontato__input"
-                  type="text"
-                  name="nombre"
-                  placeholder="Nombre"
-                />
-                <i class="validar-estado fas fa-times-circle"></i>
               </div>
-              <div id="input_email" class="input">
-                <input
-                  class="formcontato__input"
-                  type="email"
-                  name="email"
-                  placeholder="E-mail"
-                />
-                <i class="validar-estado fas fa-times-circle"></i>
-              </div>
-              <div id="input_asunto" class="input">
-                <input
-                  class="formcontato__input"
-                  type="text"
-                  name="asunto"
-                  placeholder="Assunto"
-                />
-                <i class="validar-estado fas fa-times-circle"></i>
-              </div>
-              <div id="input_mensaje" class="input">
-                <textarea
-                  class="formcontato__textarea"
-                  rows="5"
-                  cols="40"
-                  id="mensagem"
-                  name="mensaje"
-                  placeholder="Mensaje"
-                ></textarea>
-                <i class="validar-estado fas fa-times-circle"></i>
-              </div>
-              <a href="mailto:pablorevelo209@gmail.com" id="enviar">
-                <input type="submit" class="formcontato__botao" value="Enviar mensaje">
-              </a>
             </form>
           </div>
+          <div class="col-lg-6 text-center text-lg-end">
+            <img
+              class="contact-img border border-1 border-secondary-subtle"
+              src="assets/contact_image.png"
+              alt="Contáctame"
+              onerror="this.style.display='none';"
+            />
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Sección de Footer -->
-      <section class="footer">
-        <div class="footer__rodape">
-          <p>Desarrollado por Pablo Revelo</p>
-          <p>2023</p>
+    <!-- FOOTER -->
+    <footer class="py-4">
+      <div class="container">
+        <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-2">
+          <p class="mb-0">
+            <small>&copy; <span id="year"></span> Desarrollado por Pablo Revelo</small>
+          </p>
+          <div class="d-flex gap-3">
+            <a class="text-decoration-none text-secondary" href="#top">
+              <i class="bi bi-arrow-up-circle"></i> Subir
+            </a>
+          </div>
         </div>
-      </section>
-    </div>
-    <!-- Script del documento JavaScript -->
-    <script src="validacion.js"></script>
+      </div>
+    </footer>
+
+    <!-- Scripts Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Utilidades JS simples -->
+    <script>
+      // Año dinámico en footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
+
